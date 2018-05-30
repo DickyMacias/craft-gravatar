@@ -1,0 +1,44 @@
+{
+    "name": "noxify/gravatar",
+    "description": "Adds gravatar support",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "gravatar"
+    ],
+    "support": {
+        "docs": "https://github.com/noxify/gravatar/blob/master/README.md",
+        "issues": "https://github.com/noxify/gravatar/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marcus Reinhardt",
+            "homepage": "https://github.com/noxify"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0-RC1"
+    },
+    "autoload": {
+        "psr-4": {
+          "noxify\\gravatar\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Gravatar",
+        "handle": "gravatar",
+        "hasCpSettings": true,
+        "hasCpSection": false,
+        "changelogUrl": "https://raw.githubusercontent.com/noxify/gravatar/master/CHANGELOG.md",
+        "components": {
+            "url": "noxify\\gravatar\\services\\Url",
+            "img": "noxify\\gravatar\\services\\Img"
+        },
+        "class": "noxify\\gravatar\\Gravatar"
+    }
+}

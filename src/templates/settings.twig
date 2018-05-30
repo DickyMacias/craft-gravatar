@@ -1,0 +1,67 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Gravatar plugin for Craft CMS 3.x
+ *
+ * Gravatar Settings.twig
+ *
+ * @author    Marcus Reinhardt
+ * @copyright Copyright (c) 2018 Marcus Reinhardt
+ * @link      https://github.com/noxify
+ * @package   Gravatar
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{{ forms.textField({
+    label: "url_label"|t("gravatar"),
+    id: 'url',
+    name: 'url',
+    value: settings['url']
+    })
+}}
+
+{{ forms.textField({
+    label: "size_label"|t("gravatar"),
+    instructions: "size_instructions"|t("gravatar"),
+    id: 'size',
+    name: 'size',
+    value: settings['size']
+    })
+}}
+
+{{ forms.selectField({
+    label: "rating_label"|t("gravatar"),
+    instructions: "rating_instructions"|t("gravatar"),
+    id: "rating",
+    name: "rating",
+    options: {
+        g: "rating_option_g"|t("gravatar"),
+        pg: "rating_option_pg"|t("gravatar"),
+        r: "rating_option_r"|t("gravatar"),
+        x: "rating_option_x"|t("gravatar"),
+    },
+    value: settings['rating']
+    }) 
+}}
+
+{{ forms.selectField({
+    label: "default_label"|t("gravatar"),
+    instructions: "default_instructions"|t("gravatar"),
+    id: "default",
+    name: "default",
+    options: {
+        404: "default_option_404"|t("gravatar"),
+        mp: "default_option_mp"|t("gravatar"),
+        identicon: "default_option_identicon"|t("gravatar"),
+        monsterid: "default_option_monsterid"|t("gravatar"),
+        wavatar: "default_option_wavatar"|t("gravatar"),
+        retro: "default_option_retro"|t("gravatar"),
+        robohash: "default_option_robohash"|t("gravatar"),
+        blank: "default_option_blank"|t("gravatar"),
+    },
+    value: settings['default']
+    }) 
+}}
