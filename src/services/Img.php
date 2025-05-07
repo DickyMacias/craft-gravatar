@@ -1,23 +1,23 @@
 <?php
 /**
- * Gravatar plugin for Craft CMS 3.x
+ * Gravatar plugin for Craft CMS 4.x and above
  *
  * Adds gravatar support
  *
- * @link      https://github.com/noxify
- * @copyright Copyright (c) 2018 Marcus Reinhardt
+ * @link      https://github.com/DickyMacias
+ * @copyright Copyright (c) 2025 Dicky Macias | Forked from Noxify
  */
 
-namespace noxify\gravatar\services;
+namespace dickymacias\gravatar\services;
 
 use Craft;
 use yii\helpers\BaseHtml;
 use craft\base\Component;
 use craft\helpers\UrlHelper;
-use noxify\gravatar\Gravatar;
+use dickymacias\gravatar\Gravatar;
 
 /**
- * @author    Marcus Reinhardt
+ * @author    Dicky Macias
  * @package   Gravatar
  * @since     1.0.0
  */
@@ -31,18 +31,38 @@ class Img extends Component
      *
      * @param string $email
      * @param array $criteria
-     * @param boolean $asImage
+     * @param array $attributes
      * @return string
      */
-    public function get($email, $criteria = array(), $attributes = array())
+    public function get(string $email, array $criteria = [], array $attributes = []): string
     {
-        $email_hash = md5( strtolower( trim( $email ) ) );
+        $email_hash = md5(strtolower(trim($email)));
         $url = Gravatar::$plugin->getSettings()->url.$email_hash;
-        $default = ($criteria['d']) ?? Gravatar::$plugin->getSettings()->default;
-        $size = ($criteria['s']) ?? Gravatar::$plugin->getSettings()->size;
-        $rating = ($criteria['r']) ?? Gravatar::$plugin->getSettings()->rating;
+        
+        $params = [];
+        
+        // Add size if specified or use default
+        if (isset($criteria['s'])) {
+            $params['s'] = $criteria['s'];
+        } else {
+            $params['s'] = Gravatar::$plugin->getSettings()->size;
+        }
+        
+        // Add rating if specified or use default
+        if (isset($criteria['r'])) {
+            $params['r'] = $criteria['r'];
+        } else {
+            $params['r'] = Gravatar::$plugin->getSettings()->rating;
+        }
+        
+        // Add default if specified or use default
+        if (isset($criteria['d'])) {
+            $params['d'] = $criteria['d'];
+        } else {
+            $params['d'] = Gravatar::$plugin->getSettings()->default;
+        }
 
-        $gravatar_url = UrlHelper::urlWithParams($url, ['s' => $size, 'r' => $rating, 'd' => $default]);
+        $gravatar_url = UrlHelper::urlWithParams($url, $params);
 
         return BaseHtml::img($gravatar_url, $attributes);
     }
