@@ -1,5 +1,5 @@
 {
-    "name": "noxify/gravatar",
+    "name": "dickymacias/gravatar",
     "description": "Adds gravatar support",
     "type": "craft-plugin",
     "version": "1.0.0",
@@ -11,22 +11,23 @@
         "gravatar"
     ],
     "support": {
-        "docs": "https://github.com/noxify/gravatar/blob/master/README.md",
-        "issues": "https://github.com/noxify/gravatar/issues"
+        "docs": "https://github.com/DickyMacias/gravatar/blob/master/README.md",
+        "issues": "https://github.com/DickyMacias/gravatar/issues"
     },
     "license": "MIT",
     "authors": [
         {
-            "name": "Marcus Reinhardt",
-            "homepage": "https://github.com/noxify"
+            "name": "Dicky Macias",
+            "homepage": "https://github.com/DickyMacias"
         }
     ],
     "require": {
-        "craftcms/cms": "^3.0.0-RC1"
+        "craftcms/cms": "^4.0.0|^5.0.0",
+        "php": "^8.0.2"
     },
     "autoload": {
         "psr-4": {
-          "noxify\\gravatar\\": "src/"
+          "dickymacias\\gravatar\\": "src/"
         }
     },
     "extra": {
@@ -34,11 +35,11 @@
         "handle": "gravatar",
         "hasCpSettings": true,
         "hasCpSection": false,
-        "changelogUrl": "https://raw.githubusercontent.com/noxify/gravatar/master/CHANGELOG.md",
+        "changelogUrl": "https://raw.githubusercontent.com/DickyMacias/gravatar/master/CHANGELOG.md",
         "components": {
-            "url": "noxify\\gravatar\\services\\Url",
-            "img": "noxify\\gravatar\\services\\Img"
+            "url": "dickymacias\\gravatar\\services\\Url",
+            "img": "dickymacias\\gravatar\\services\\Img"
         },
-        "class": "noxify\\gravatar\\Gravatar"
+        "class": "dickymacias\\gravatar\\Gravatar"
     }
 }
