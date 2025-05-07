@@ -8,6 +8,21 @@ This plugin requires:
 - Craft CMS 4.0.0 or later
 - PHP 8.0.2 or later
 
+## Compatibility
+
+This plugin is a fork of the original [Gravatar plugin by Marcus Reinhardt](https://github.com/noxify/craft-gravatar) and is specifically designed for Craft CMS 4.x and 5.x.
+
+### Version Compatibility
+- For Craft CMS 3.x: Please use the [original plugin by Marcus Reinhardt](https://github.com/noxify/craft-gravatar)
+- For Craft CMS 4.x and 5.x: Use this plugin
+
+### Why This Fork?
+This fork was created to:
+- Provide compatibility with Craft CMS 4.x and 5.x
+- Add support for PHP 8.0.2 and later
+- Implement strict typing and modern PHP features
+- Update the plugin structure to follow current Craft CMS best practices
+
 ## Installation
 
 To install the plugin, follow these instructions.
@@ -70,4 +85,8 @@ Inside the plugin settings (and also in the `config.php`) you have also the deta
 
 ## Gravatar Roadmap
 
-Brought to you by [Dicky Macias](https://github.com/DickyMacias)
+This plugin is a fork of the original [Gravatar plugin by Marcus Reinhardt](https://github.com/noxify/craft-gravatar).
+
+### Authors
+- Original plugin: [Marcus Reinhardt](https://github.com/noxify)
+- Current maintainer: [Dicky Macias](https://github.com/DickyMacias)
