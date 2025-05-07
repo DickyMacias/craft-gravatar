@@ -1,10 +1,12 @@
-# Gravatar plugin for Craft CMS 3.x
+# Gravatar plugin for Craft CMS 4.x and 5.x
 
 Adds gravatar support. 
 
 ## Requirements
 
-This plugin requires Craft CMS 3.0.0-beta.23 or later.
+This plugin requires:
+- Craft CMS 4.0.0 or later
+- PHP 8.0.2 or later
 
 ## Installation
 
@@ -16,9 +18,9 @@ To install the plugin, follow these instructions.
 
 2. Then tell Composer to load the plugin:
 
-        composer require noxify/gravatar
+        composer require dickymacias/gravatar
 
-3. In the Control Panel, go to Settings → Plugins and click the “Install” button for Gravatar.
+3. In the Control Panel, go to Settings → Plugins and click the "Install" button for Gravatar.
 
 ## Configuring Gravatar
 
@@ -29,7 +31,7 @@ The plugins allows you to configure the following settings directly from your CP
 * Rating ( `default: mp` )
 * Default Avatar ( `default: mp` )
 
-Detailed instructions what are the allowed values are defined here: https://de.gravatar.com/site/implement/images/
+Detailed instructions about allowed values are defined here: https://en.gravatar.com/site/implement/images/
 
 Inside the plugin settings (and also in the `config.php`) you have also the detailed instructions and options.
 
@@ -38,36 +40,34 @@ Inside the plugin settings (and also in the `config.php`) you have also the deta
 
 ### Get the Gravatar URL with default settings
 
-```
-{{ craft.gravatar.url( 'hello@example.com' ) }}
+```twig
+{{ craft.gravatar.url('hello@example.com') }}
 ```
 
 ### Get the Gravatar URL with custom settings
 
-```
-{{ craft.gravatar.url( 'hello@example.com', {'s' : 120, 'd': 'identicon', 'r' : 'x'} ) }}
+```twig
+{{ craft.gravatar.url('hello@example.com', {'s': 120, 'd': 'identicon', 'r': 'x'}) }}
 ```
 
 ### Get the Gravatar IMG with default settings
 
-```
-{{ craft.gravatar.img( 'hello@example.com' ) }}
+```twig
+{{ craft.gravatar.img('hello@example.com') }}
 ```
 
 ### Get the Gravatar IMG with custom settings
 
-```
-{{ craft.gravatar.img( 'hello@example.com', {'s' : 120, 'd': 'identicon', 'r' : 'x'} ) }}
+```twig
+{{ craft.gravatar.img('hello@example.com', {'s': 120, 'd': 'identicon', 'r': 'x'}) }}
 ```
 
 ### Get the Gravatar IMG with custom settings and attributes
 
+```twig
+{{ craft.gravatar.img('hello@example.com', {'s': 120}, {'class': 'useravatar'}) }}
 ```
-{{ craft.gravatar.img( 'hello@example.com', {'s': 120}, {'class' : 'useravatar'} ) }}
-```
-
-
 
 ## Gravatar Roadmap
 
-Brought to you by [Marcus Reinhardt](https://github.com/noxify)
+Brought to you by [Dicky Macias](https://github.com/DickyMacias)
