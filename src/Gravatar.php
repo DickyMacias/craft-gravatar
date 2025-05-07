@@ -1,19 +1,19 @@
 <?php
 /**
- * Gravatar plugin for Craft CMS 3.x
+ * Gravatar plugin for Craft CMS 4.x and above
  *
  * Adds gravatar support
  *
- * @link      https://github.com/noxify
- * @copyright Copyright (c) 2018 Marcus Reinhardt
+ * @link      https://github.com/DickyMacias
+ * @copyright Copyright (c) 2025 Dicky Macias | Forked from Noxify
  */
 
-namespace noxify\gravatar;
+namespace dickymacias\gravatar;
 
-use noxify\gravatar\services\Url as UrlService;
-use noxify\gravatar\services\Img as ImgService;
-use noxify\gravatar\variables\GravatarVariable;
-use noxify\gravatar\models\Settings;
+use dickymacias\gravatar\services\Url as UrlService;
+use dickymacias\gravatar\services\Img as ImgService;
+use dickymacias\gravatar\variables\GravatarVariable;
+use dickymacias\gravatar\models\Settings;
 
 use Craft;
 use craft\base\Plugin;
@@ -26,7 +26,7 @@ use yii\base\Event;
 /**
  * Class Gravatar
  *
- * @author    Marcus Reinhardt
+ * @author    Dicky Macias
  * @package   Gravatar
  * @since     1.0.0
  *
@@ -49,7 +49,12 @@ class Gravatar extends Plugin
     /**
      * @var string
      */
-    public $schemaVersion = '1.0.0';
+    public string $schemaVersion = '1.0.0';
+
+    /**
+     * @var bool
+     */
+    public bool $hasCpSettings = true;
 
     // Public Methods
     // =========================================================================
@@ -57,7 +62,7 @@ class Gravatar extends Plugin
     /**
      * @inheritdoc
      */
-    public function init()
+    public function init(): void
     {
         parent::init();
         self::$plugin = $this;
@@ -97,7 +102,7 @@ class Gravatar extends Plugin
     /**
      * @inheritdoc
      */
-    protected function createSettingsModel()
+    protected function createSettingsModel(): ?\craft\base\Model
     {
         return new Settings();
     }
@@ -105,9 +110,9 @@ class Gravatar extends Plugin
     /**
      * @inheritdoc
      */
-    protected function settingsHtml(): string
+    protected function settingsHtml(): ?string
     {
-        return Craft::$app->view->renderTemplate(
+        return \Craft::$app->getView()->renderTemplate(
             'gravatar/settings',
             [
                 'settings' => $this->getSettings()

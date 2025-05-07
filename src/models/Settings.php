@@ -1,22 +1,22 @@
 <?php
 /**
- * Gravatar plugin for Craft CMS 3.x
+ * Gravatar plugin for Craft CMS 4.x and above
  *
  * Adds gravatar support
  *
- * @link      https://github.com/noxify
- * @copyright Copyright (c) 2018 Marcus Reinhardt
+ * @link      https://github.com/DickyMacias
+ * @copyright Copyright (c) 2025 Dicky Macias | Forked from Noxify
  */
 
-namespace noxify\gravatar\models;
+namespace dickymacias\gravatar\models;
 
-use noxify\gravatar\Gravatar;
+use dickymacias\gravatar\Gravatar;
 
 use Craft;
 use craft\base\Model;
 
 /**
- * @author    Marcus Reinhardt
+ * @author    Dicky Macias
  * @package   Gravatar
  * @since     1.0.0
  */
@@ -28,22 +28,22 @@ class Settings extends Model
     /**
      * @var string
      */
-    public $url = '//www.gravatar.com/avatar/';
+    public string $url = '//www.gravatar.com/avatar/';
 
     /**
      * @var string
      */
-    public $size = '80';
+    public string $size = '80';
 
     /**
      * @var string
      */
-    public $rating = 'g';
+    public string $rating = 'g';
 
     /**
      * @var string
      */
-    public $default = 'mp';
+    public string $default = 'mp';
 
     // Public Methods
     // =========================================================================
@@ -51,7 +51,7 @@ class Settings extends Model
     /**
      * @inheritdoc
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             ['url', 'string'],
